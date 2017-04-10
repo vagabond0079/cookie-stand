@@ -24,7 +24,13 @@ var cookieShopFirstPike = {
       this.totalCustEachHour.push ((Math.floor (Math.random() * (this.maxCust - this.minCust + 1))) + this.minCust);
     };
     console.log(this.totalCustEachHour);
-  }
+  },
+  CookiesPerHour: function() {
+    for( var i = 0; i <= 14; i++) {
+      this.totalCookiesPerHour.push (Math.floor (this.totalCustEachHour[i] * this.avgCookiePerCust));
+    };
+    console.log(this.totalCookiesPerHour);
+  },
 };
 
 var cookieShopSeatacAirport = {
@@ -38,7 +44,13 @@ var cookieShopSeatacAirport = {
       this.totalCustEachHour.push ((Math.floor (Math.random() * (this.maxCust - this.minCust + 1))) + this.minCust);
     };
     console.log(this.totalCustEachHour);
-  }
+  },
+  CookiesPerHour: function() {
+    for( var i = 0; i <= 14; i++) {
+      this.totalCookiesPerHour.push (Math.floor (this.totalCustEachHour[i] * this.avgCookiePerCust));
+    };
+    console.log(this.totalCookiesPerHour);
+  },
 };
 
 var cookieShopSeattleCenter = {
@@ -52,7 +64,13 @@ var cookieShopSeattleCenter = {
       this.totalCustEachHour.push ((Math.floor (Math.random() * (this.maxCust - this.minCust + 1))) + this.minCust);
     };
     console.log(this.totalCustEachHour);
-  }
+  },
+  CookiesPerHour: function() {
+    for( var i = 0; i <= 14; i++) {
+      this.totalCookiesPerHour.push (Math.floor (this.totalCustEachHour[i] * this.avgCookiePerCust));
+    };
+    console.log(this.totalCookiesPerHour);
+  },
 };
 
 var cookieShopCapitolHill = {
@@ -66,7 +84,13 @@ var cookieShopCapitolHill = {
       this.totalCustEachHour.push ((Math.floor (Math.random() * (this.maxCust - this.minCust + 1))) + this.minCust);
     };
     console.log(this.totalCustEachHour);
-  }
+  },
+  CookiesPerHour: function() {
+    for( var i = 0; i <= 14; i++) {
+      this.totalCookiesPerHour.push (Math.floor (this.totalCustEachHour[i] * this.avgCookiePerCust));
+    };
+    console.log(this.totalCookiesPerHour);
+  },
 };
 
 var cookieShopAlki = {
@@ -80,7 +104,13 @@ var cookieShopAlki = {
       this.totalCustEachHour.push ((Math.floor (Math.random() * (this.maxCust - this.minCust + 1))) + this.minCust);
     };
     console.log(this.totalCustEachHour);
-  }
+  },
+  CookiesPerHour: function() {
+    for( var i = 0; i <= 14; i++) {
+      this.totalCookiesPerHour.push (Math.floor (this.totalCustEachHour[i] * this.avgCookiePerCust));
+    };
+    console.log(this.totalCookiesPerHour);
+  },
 };
 
 cookieShopFirstPike.randomCust();
@@ -88,3 +118,9 @@ cookieShopSeatacAirport.randomCust();
 cookieShopSeattleCenter.randomCust();
 cookieShopCapitolHill.randomCust();
 cookieShopAlki.randomCust();
+
+cookieShopFirstPike.CookiesPerHour();
+cookieShopSeatacAirport.CookiesPerHour();
+cookieShopSeattleCenter.CookiesPerHour();
+cookieShopCapitolHill.CookiesPerHour();
+cookieShopAlki.CookiesPerHour();
