@@ -32,13 +32,39 @@ var cookieShopAlki = new CookieShop('Alki', 2, 16, 4.6);
 var cookieShops = [cookieShopFirstPike, cookieShopSeatacAirport, cookieShopSeattleCenter, cookieShopCapitolHill, cookieShopAlki];
 
 function salesReport (cookieShops){
-  for (var i = 0; i < cookieShops.length; i++) {
-    var newEl = document.createElement('h2');
-    var newText = document.createTextNode(cookieShops[i].shopLoc);
+  var newEl = document.createElement('table');
+  newEl.id = 'salesReportTable';
+  var position = document.getElementById('salesReport');
+  position.appendChild(newEl);
+
+  newEl = document.createElement('thead');
+  newEl.id = 'colHeaders';
+  position = document.getElementById('salesReportTable');
+  position.appendChild(newEl);
+
+  newEl = document.createElement('tr');
+  newEl.id = 'colHeadersRow';
+  position = document.getElementById('colHeaders');
+  position.appendChild(newEl);
+
+  newEl = document.createElement('th');
+  position = document.getElementById('colHeadersRow');
+  position.appendChild(newEl);
+
+  for (var i = 0; i < hoursOfOperation.length; i++){
+    newEl = document.createElement('th');
+    var newText = document.createTextNode(hoursOfOperation[i]);
     newEl.appendChild(newText);
-    var position = document.getElementsByTagName('div')[i];
+    position = document.getElementById('colHeadersRow');
     position.appendChild(newEl);
   }
+  // for (var i = 0; i < cookieShops.length; i++) {
+  //   var newEl = document.createElement('h2');
+  //   var newText = document.createTextNode(cookieShops[i].shopLoc);
+  //   newEl.appendChild(newText);
+  //   var position = document.getElementsByTagName('div')[i];
+  //   position.appendChild(newEl);
+  // }
 }
 salesReport(cookieShops);
 
