@@ -95,7 +95,12 @@ function salesReportTableHead (cookieShops){
   // }
 }
 salesReportTableHead(cookieShops);
-cookieShopFirstPike.salesReportTableRows();
+
+for(i = 0; i < cookieShops.length; i++){
+  cookieShops[i].salesReportTableRows();
+}
+
+// cookieShopFirstPike.salesReportTableRows();
 
 //Adding a new <h2> element for each shop.
 
