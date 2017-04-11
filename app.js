@@ -23,6 +23,27 @@ CookieShop.prototype.cookiesPerHour = function() {
   }
 };
 
+CookieShop.prototype.salesReportTableRows = function() {
+  var newEl = document.createElement('tr');
+  newEl.id = this.shopLoc + ' row';
+  var position = document.getElementById('salesReportTable');
+  position.appendChild(newEl);
+
+  newEl = document.createElement('th');
+  var newText = document.createTextNode(this.shopLoc);
+  newEl.appendChild(newText);
+  position = document.getElementById(this.shopLoc + ' row');
+  position.appendChild(newEl);
+
+  for (var i = 0; i < hoursOfOperation.length; i++){
+    newEl = document.createElement('td');
+    newText = document.createTextNode(this.totalCookiesPerHour[i]);
+    newEl.appendChild(newText);
+    position = document.getElementById(this.shopLoc + ' row');
+    position.appendChild(newEl);
+  }
+};
+
 var cookieShopFirstPike = new CookieShop('First and Pike', 23, 65, 6.3);
 var cookieShopSeatacAirport = new CookieShop('Seatac Airport', 3, 24, 1.2);
 var cookieShopSeattleCenter = new CookieShop('Seattle Center', 11, 38, 3.7);
@@ -31,7 +52,13 @@ var cookieShopAlki = new CookieShop('Alki', 2, 16, 4.6);
 
 var cookieShops = [cookieShopFirstPike, cookieShopSeatacAirport, cookieShopSeattleCenter, cookieShopCapitolHill, cookieShopAlki];
 
-function salesReport (cookieShops){
+for(var i = 0; i < cookieShops.length; i++) {
+  cookieShops[i].randomCust();
+  cookieShops[i].cookiesPerHour();
+}
+console.log(cookieShops);
+
+function salesReportTableHead (cookieShops){
   var newEl = document.createElement('table');
   newEl.id = 'salesReportTable';
   var position = document.getElementById('salesReport');
@@ -58,6 +85,7 @@ function salesReport (cookieShops){
     position = document.getElementById('colHeadersRow');
     position.appendChild(newEl);
   }
+
   // for (var i = 0; i < cookieShops.length; i++) {
   //   var newEl = document.createElement('h2');
   //   var newText = document.createTextNode(cookieShops[i].shopLoc);
@@ -66,7 +94,8 @@ function salesReport (cookieShops){
   //   position.appendChild(newEl);
   // }
 }
-salesReport(cookieShops);
+salesReportTableHead(cookieShops);
+cookieShopFirstPike.salesReportTableRows();
 
 //Adding a new <h2> element for each shop.
 
@@ -98,13 +127,6 @@ salesReport(cookieShops);
 //   position = document.getElementsByTagName('ul')[shopNumber - 1];
 //   position.appendChild(newEl);
 // }
-
-for(var i = 0; i < cookieShops.length; i++) {
-  cookieShops[i].randomCust();
-  cookieShops[i].cookiesPerHour();
-}
-
-console.log(cookieShops);
 
 // for(var j = 0; j < cookieShops.length; j++) {
 //   newSalesReport(cookieShops[j], j + 1);
