@@ -26,13 +26,11 @@ var cookieShopFirstPike = {
     for( var i = 15; i > 0; i--) {
       this.totalCustEachHour.push ((Math.floor (Math.random() * (this.maxCust - this.minCust + 1))) + this.minCust);
     };
-    console.log(this.totalCustEachHour);
   },
   CookiesPerHour: function() {
     for( var i = 0; i <= 14; i++) {
       this.totalCookiesPerHour.push (Math.floor (this.totalCustEachHour[i] * this.avgCookiePerCust));
     };
-    console.log(this.totalCookiesPerHour);
   },
 };
 
@@ -47,13 +45,11 @@ var cookieShopSeatacAirport = {
     for( var i = 15; i > 0; i--) {
       this.totalCustEachHour.push ((Math.floor (Math.random() * (this.maxCust - this.minCust + 1))) + this.minCust);
     };
-    console.log(this.totalCustEachHour);
   },
   CookiesPerHour: function() {
     for( var i = 0; i <= 14; i++) {
       this.totalCookiesPerHour.push (Math.floor (this.totalCustEachHour[i] * this.avgCookiePerCust));
     };
-    console.log(this.totalCookiesPerHour);
   },
 };
 
@@ -68,13 +64,11 @@ var cookieShopSeattleCenter = {
     for( var i = 15; i > 0; i--) {
       this.totalCustEachHour.push ((Math.floor (Math.random() * (this.maxCust - this.minCust + 1))) + this.minCust);
     };
-    console.log(this.totalCustEachHour);
   },
   CookiesPerHour: function() {
     for( var i = 0; i <= 14; i++) {
       this.totalCookiesPerHour.push (Math.floor (this.totalCustEachHour[i] * this.avgCookiePerCust));
     };
-    console.log(this.totalCookiesPerHour);
   },
 };
 
@@ -89,13 +83,11 @@ var cookieShopCapitolHill = {
     for( var i = 15; i > 0; i--) {
       this.totalCustEachHour.push ((Math.floor (Math.random() * (this.maxCust - this.minCust + 1))) + this.minCust);
     };
-    console.log(this.totalCustEachHour);
   },
   CookiesPerHour: function() {
     for( var i = 0; i <= 14; i++) {
       this.totalCookiesPerHour.push (Math.floor (this.totalCustEachHour[i] * this.avgCookiePerCust));
     };
-    console.log(this.totalCookiesPerHour);
   },
 };
 
@@ -110,13 +102,11 @@ var cookieShopAlki = {
     for( var i = 15; i > 0; i--) {
       this.totalCustEachHour.push ((Math.floor (Math.random() * (this.maxCust - this.minCust + 1))) + this.minCust);
     };
-    console.log(this.totalCustEachHour);
   },
   CookiesPerHour: function() {
     for( var i = 0; i <= 14; i++) {
       this.totalCookiesPerHour.push (Math.floor (this.totalCustEachHour[i] * this.avgCookiePerCust));
     };
-    console.log(this.totalCookiesPerHour);
   },
 };
 
