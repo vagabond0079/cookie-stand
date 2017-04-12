@@ -35,7 +35,14 @@ CookieShop.prototype.salesReportTableRows = function() {
   position = document.getElementById(this.shopLoc + ' row');
   position.appendChild(newEl);
 
-  for (var i = 0; i < hoursOfOperation.length; i++){
+  var total = 0;
+  for( var i in this.totalCookiesPerHour) {
+    total += this.totalCookiesPerHour[i];
+  }
+
+  this.totalCookiesPerHour.push(total);
+
+  for (i = 0; i <= hoursOfOperation.length; i++){
     newEl = document.createElement('td');
     // newEl.id = 'countMe '+ i;
     newText = document.createTextNode(this.totalCookiesPerHour[i]);
@@ -62,7 +69,7 @@ console.log(cookieShops);
 function salesReportTableHead (cookieShops){
   var newEl = document.createElement('table');
   newEl.id = 'salesReportTable';
-  var position = document.getElementById('salesReport');
+  var position = document.getElementById('body');
   position.appendChild(newEl);
 
   newEl = document.createElement('thead');
@@ -86,6 +93,12 @@ function salesReportTableHead (cookieShops){
     position = document.getElementById('colHeadersRow');
     position.appendChild(newEl);
   }
+
+  newEl = document.createElement('th');
+  var newText = document.createTextNode('Daily Location Total');
+  newEl.appendChild(newText);
+  position = document.getElementById('colHeadersRow');
+  position.appendChild(newEl);
 }
 
 var cookieTotalsPerHourAllShops = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -93,9 +106,17 @@ var cookieTotalsPerHourAllShops = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 for(i = 0; i < hoursOfOperation.length; i++){
   cookieTotalsPerHourAllShops[i] = cookieTotalsPerHourAllShops[i] + cookieShops[0].totalCookiesPerHour[i]+ cookieShops[1].totalCookiesPerHour[i] + cookieShops[2].totalCookiesPerHour[i] + cookieShops[3].totalCookiesPerHour[i] + cookieShops[4].totalCookiesPerHour[i];
 }
+
+var total = 0;
+for( i in cookieTotalsPerHourAllShops) {
+  total += cookieTotalsPerHourAllShops[i];
+}
+
+cookieTotalsPerHourAllShops.push(total);
+
 console.log(cookieTotalsPerHourAllShops);
 
-function salesReportTableFoot (cookieShops){
+function salesReportTableFoot (){
   var newEl = document.createElement('tfoot');
   newEl.id = 'colTotals';
   var position = document.getElementById('salesReportTable');
@@ -112,7 +133,7 @@ function salesReportTableFoot (cookieShops){
   position = document.getElementById('colTotalsRow');
   position.appendChild(newEl);
 
-  for (var i = 0; i < hoursOfOperation.length; i++){
+  for (var i = 0; i <= hoursOfOperation.length; i++){
     newEl = document.createElement('td');
     newText = document.createTextNode(cookieTotalsPerHourAllShops[i]);
     newEl.appendChild(newText);
@@ -127,4 +148,4 @@ for(i = 0; i < cookieShops.length; i++){
   cookieShops[i].salesReportTableRows();
 }
 
-salesReportTableFoot(cookieShops);
+salesReportTableFoot();

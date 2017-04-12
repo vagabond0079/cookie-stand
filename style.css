@@ -12,6 +12,30 @@ html, body { /* , is and selector. ul, li says all ul AND li. ul li says all li 
   height: 100%;
 }
 
+table {
+  border: 2px solid green;
+}
+
+thead {
+  border: 20px solid blue;
+}
+
+tr {
+  border: 2px solid red;
+}
+
+th {
+  border: 2px solid orange;
+}
+
+td {
+  border: 2px solid purple;
+}
+
+tfoot {
+  border: 2px solid yellow;
+}
+
 #salmon {
   width: auto;
   height: 50%;
