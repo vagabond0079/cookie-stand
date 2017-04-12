@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box; /*says the padding cannot change the box size.*/
-  border: 1px solid black;
+  /*border: 1px solid black;*/
 }
 
 html, body { /* , is and selector. ul, li says all ul AND li. ul li says all li WITHING ul.*/
@@ -18,26 +18,46 @@ table {
   width: 95%;
 }
 
-thead {
-  border: 20px solid blue;
+thead, td, th, tfoot {
+    border: 1px solid black;
+    text-align: center;
 }
 
-tr {
-  border: 2px solid red;
+#formWrap {
+  width: 40%;
+  padding: 20px;
+  display: inline-block;
+  text-align: right;
+  margin-left: 30%;
+  border: 1px solid black;
+}
+legend {
+  text-align: center;
+  font-size: 1.4em;
+  margin: 10 10 30 10;
+  border: 1px solid black;
+}
+label {
+  display: inline-block;
+  text-align: left;
+  width: auto;
+}
+input {
+  width: 120px;
+  display: inline-block;
 }
 
-th {
-  border: 2px solid orange;
+#newShopButton {
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-right: 35%;
+  text-align: center;
 }
 
-td {
-  border: 2px solid purple;
+#newShopButton:focus, #newShopButton:hover {
+  background-color: #ffffff;
+  border: 1px solid #b1e1e4;
 }
-
-tfoot {
-  border: 2px solid yellow;
-}
-
 
 #salmon {
   width: auto;

@@ -13,15 +13,15 @@ function CookieShop(shopLoc, minCust, maxCust, avgCookiePerCust){
 }
 
 CookieShop.prototype.randomCust = function() {
-  for( var i = 14; i > 0; i--) {
-    this.totalCustEachHour.push ((Math.floor (Math.random() * (this.maxCust - this.minCust + 1))) + this.minCust);
+  for( var i = hoursOfOperation.length; i > 0; i--) {
+    this.totalCustEachHour.push (Math.floor (Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust);
   }
 };
 
 CookieShop.prototype.cookiesPerHour = function() {
   for( var i = 0; i < this.totalCustEachHour.length; i++) {
     this.totalCookiesPerHour.push (Math.floor (this.totalCustEachHour[i] * this.avgCookiePerCust));
-    this.totalStaffPerHour.push (Math.ceil (this.totalCookiesPerHour[i]/20));
+    this.totalStaffPerHour.push ( Math.max ( 2, (Math.ceil (this.totalCookiesPerHour[i]/20))));
   }
 };
 
@@ -95,12 +95,11 @@ for(var i = 0; i < cookieShops.length; i++) {
   cookieShops[i].randomCust();
   cookieShops[i].cookiesPerHour();
 }
-console.log(cookieShops);
 
 function salesReportTableHead (){
   var newEl = document.createElement('table');
   newEl.id = 'salesReportTable';
-  var position = document.getElementById('bodySales');
+  var position = document.getElementById('tableWrap');
   position.appendChild(newEl);
 
   newEl = document.createElement('thead');
@@ -147,8 +146,6 @@ for( i in cookieTotalsPerHourAllShops) {
 
 cookieTotalsPerHourAllShops.push(total);
 
-console.log(cookieTotalsPerHourAllShops);
-
 function salesReportTableFoot (){
   var newEl = document.createElement('tfoot');
   newEl.id = 'colTotals';
@@ -180,7 +177,7 @@ function salesReportTableFoot (){
 function staffReportTableHead (){
   var newEl = document.createElement('table');
   newEl.id = 'staffReportTable';
-  var position = document.getElementById('bodySales');
+  var position = document.getElementById('tableWrap');
   position.appendChild(newEl);
 
   newEl = document.createElement('thead');
@@ -226,8 +223,6 @@ for( i in staffTotalsPerHourAllShops) {
 }
 
 staffTotalsPerHourAllShops.push(total);
-
-console.log(staffTotalsPerHourAllShops);
 
 function staffReportTableFoot (){
   var newEl = document.createElement('tfoot');
