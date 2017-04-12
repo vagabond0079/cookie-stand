@@ -9,6 +9,7 @@ function CookieShop(shopLoc, minCust, maxCust, avgCookiePerCust){
   this.avgCookiePerCust = avgCookiePerCust;
   this.totalCustEachHour = [];
   this.totalCookiesPerHour = [];
+  this.totalStaffPerHour = [];
 }
 
 CookieShop.prototype.randomCust = function() {
@@ -18,8 +19,9 @@ CookieShop.prototype.randomCust = function() {
 };
 
 CookieShop.prototype.cookiesPerHour = function() {
-  for( var i = 0; i <= 13; i++) {
+  for( var i = 0; i < this.totalCustEachHour.length; i++) {
     this.totalCookiesPerHour.push (Math.floor (this.totalCustEachHour[i] * this.avgCookiePerCust));
+    this.totalStaffPerHour.push (Math.ceil (this.totalCookiesPerHour[i]/20));
   }
 };
 
@@ -50,6 +52,35 @@ CookieShop.prototype.salesReportTableRows = function() {
     position = document.getElementById(this.shopLoc + ' row');
     position.appendChild(newEl);
   }
+
+  CookieShop.prototype.staffReportTableRows = function() {
+    var newEl = document.createElement('tr');
+    newEl.id = this.shopLoc + ' row Staff';
+    var position = document.getElementById('staffReportTable');
+    position.appendChild(newEl);
+
+    newEl = document.createElement('th');
+    var newText = document.createTextNode(this.shopLoc);
+    newEl.appendChild(newText);
+    position = document.getElementById(this.shopLoc + ' row Staff');
+    position.appendChild(newEl);
+
+    var total = 0;
+    for( var i in this.totalStaffPerHour) {
+      total += this.totalStaffPerHour[i];
+    }
+
+    this.totalStaffPerHour.push(total);
+    
+    for (i = 0; i <= hoursOfOperation.length; i++){
+      newEl = document.createElement('td');
+      // newEl.id = 'countMe '+ i;
+      newText = document.createTextNode(this.totalStaffPerHour[i]);
+      newEl.appendChild(newText);
+      position = document.getElementById(this.shopLoc + ' row Staff');
+      position.appendChild(newEl);
+    }
+  };
 };
 
 var cookieShopFirstPike = new CookieShop('First and Pike', 23, 65, 6.3);
@@ -66,10 +97,10 @@ for(var i = 0; i < cookieShops.length; i++) {
 }
 console.log(cookieShops);
 
-function salesReportTableHead (cookieShops){
+function salesReportTableHead (){
   var newEl = document.createElement('table');
   newEl.id = 'salesReportTable';
-  var position = document.getElementById('body');
+  var position = document.getElementById('bodySales');
   position.appendChild(newEl);
 
   newEl = document.createElement('thead');
@@ -95,7 +126,7 @@ function salesReportTableHead (cookieShops){
   }
 
   newEl = document.createElement('th');
-  var newText = document.createTextNode('Daily Location Total');
+  newText = document.createTextNode('Daily Location Total');
   newEl.appendChild(newText);
   position = document.getElementById('colHeadersRow');
   position.appendChild(newEl);
@@ -142,6 +173,68 @@ function salesReportTableFoot (){
   }
 }
 
+//Stretch Goal: Second Table for staff needs.
+
+function staffReportTableHead (){
+  var newEl = document.createElement('table');
+  newEl.id = 'staffReportTable';
+  var position = document.getElementById('bodySales');
+  position.appendChild(newEl);
+
+  newEl = document.createElement('thead');
+  newEl.id = 'colHeadersStaff';
+  position = document.getElementById('staffReportTable');
+  position.appendChild(newEl);
+
+  newEl = document.createElement('tr');
+  newEl.id = 'colHeadersRowStaff';
+  position = document.getElementById('colHeadersStaff');
+  position.appendChild(newEl);
+
+  newEl = document.createElement('th');
+  position = document.getElementById('colHeadersRowStaff');
+  position.appendChild(newEl);
+
+  for (var i = 0; i < hoursOfOperation.length; i++){
+    newEl = document.createElement('th');
+    var newText = document.createTextNode(hoursOfOperation[i]);
+    newEl.appendChild(newText);
+    position = document.getElementById('colHeadersRowStaff');
+    position.appendChild(newEl);
+  }
+
+  newEl = document.createElement('th');
+  newText = document.createTextNode('Total Staff Hours');
+  newEl.appendChild(newText);
+  position = document.getElementById('colHeadersRowStaff');
+  position.appendChild(newEl);
+}
+
+function staffReportTableFoot (){
+  var newEl = document.createElement('tfoot');
+  newEl.id = 'colTotalsStaff';
+  var position = document.getElementById('staffReportTable');
+  position.appendChild(newEl);
+
+  newEl = document.createElement('tr');
+  newEl.id = 'colTotalsRowStaff';
+  position = document.getElementById('colTotalsStaff');
+  position.appendChild(newEl);
+
+  newEl = document.createElement('th');
+  var newText = document.createTextNode('Totals:');
+  newEl.appendChild(newText);
+  position = document.getElementById('colTotalsRowStaff');
+  position.appendChild(newEl);
+
+  for (var i = 0; i <= hoursOfOperation.length; i++){
+    newEl = document.createElement('td');
+    newText = document.createTextNode(cookieTotalsPerHourAllShops[i]);
+    newEl.appendChild(newText);
+    position = document.getElementById('colTotalsRowStaff');
+    position.appendChild(newEl);
+  }
+}
 salesReportTableHead(cookieShops);
 
 for(i = 0; i < cookieShops.length; i++){
@@ -149,3 +242,11 @@ for(i = 0; i < cookieShops.length; i++){
 }
 
 salesReportTableFoot();
+
+staffReportTableHead();
+
+for(i = 0; i < cookieShops.length; i++){
+  cookieShops[i].staffReportTableRows();
+}
+
+staffReportTableFoot();
