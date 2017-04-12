@@ -71,7 +71,7 @@ CookieShop.prototype.salesReportTableRows = function() {
     }
 
     this.totalStaffPerHour.push(total);
-    
+
     for (i = 0; i <= hoursOfOperation.length; i++){
       newEl = document.createElement('td');
       // newEl.id = 'countMe '+ i;
@@ -114,12 +114,14 @@ function salesReportTableHead (){
   position.appendChild(newEl);
 
   newEl = document.createElement('th');
+  var newText = document.createTextNode('Daily Sales Report');
+  newEl.appendChild(newText);
   position = document.getElementById('colHeadersRow');
   position.appendChild(newEl);
 
   for (var i = 0; i < hoursOfOperation.length; i++){
     newEl = document.createElement('th');
-    var newText = document.createTextNode(hoursOfOperation[i]);
+    newText = document.createTextNode(hoursOfOperation[i]);
     newEl.appendChild(newText);
     position = document.getElementById('colHeadersRow');
     position.appendChild(newEl);
@@ -192,12 +194,14 @@ function staffReportTableHead (){
   position.appendChild(newEl);
 
   newEl = document.createElement('th');
+  var newText = document.createTextNode('Daily Staff Report');
+  newEl.appendChild(newText);
   position = document.getElementById('colHeadersRowStaff');
   position.appendChild(newEl);
 
   for (var i = 0; i < hoursOfOperation.length; i++){
     newEl = document.createElement('th');
-    var newText = document.createTextNode(hoursOfOperation[i]);
+    newText = document.createTextNode(hoursOfOperation[i]);
     newEl.appendChild(newText);
     position = document.getElementById('colHeadersRowStaff');
     position.appendChild(newEl);
@@ -209,6 +213,21 @@ function staffReportTableHead (){
   position = document.getElementById('colHeadersRowStaff');
   position.appendChild(newEl);
 }
+
+var staffTotalsPerHourAllShops = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
+for(i = 0; i < hoursOfOperation.length; i++){
+  staffTotalsPerHourAllShops[i] = staffTotalsPerHourAllShops[i] + cookieShops[0].totalStaffPerHour[i]+ cookieShops[1].totalStaffPerHour[i] + cookieShops[2].totalStaffPerHour[i] + cookieShops[3].totalStaffPerHour[i] + cookieShops[4].totalStaffPerHour[i];
+}
+
+total = 0;
+for( i in staffTotalsPerHourAllShops) {
+  total += staffTotalsPerHourAllShops[i];
+}
+
+staffTotalsPerHourAllShops.push(total);
+
+console.log(staffTotalsPerHourAllShops);
 
 function staffReportTableFoot (){
   var newEl = document.createElement('tfoot');
@@ -229,7 +248,7 @@ function staffReportTableFoot (){
 
   for (var i = 0; i <= hoursOfOperation.length; i++){
     newEl = document.createElement('td');
-    newText = document.createTextNode(cookieTotalsPerHourAllShops[i]);
+    newText = document.createTextNode(staffTotalsPerHourAllShops[i]);
     newEl.appendChild(newText);
     position = document.getElementById('colTotalsRowStaff');
     position.appendChild(newEl);
