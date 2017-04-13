@@ -13,7 +13,7 @@ html, body { /* , is and selector. ul, li says all ul AND li. ul li says all li 
 }
 
 table {
-  border: 2px solid green;
+  border: 3px solid rgb(160, 35, 40);
   margin: 2%;
   width: 95%;
 }
@@ -23,28 +23,33 @@ table {
 }
 
 thead, td, th, tfoot {
-    border: 1px solid black;
+    border: 1px solid rgb(95, 190, 160);;
     text-align: center;
     width: 5%;
 }
 
+.topLeft {
+  font-size: 1.4rem;
+}
+
 #formWrap {
-  width: 50%;
+  width: 40%;
   padding: 2%;
   text-align: right;
   margin: auto;
-  border: 1px solid black;
+  border: 5px solid rgb(95, 190, 160);;
 }
 
 form div {
-  /*border: 1px solid black;*/
+  /*border: 1px solid rgb(95, 190, 160);;*/
   display: inline-block;
 }
 legend {
   text-align: center;
   font-size: 1.4em;
   margin: 0 0 2.5% 0;
-  border: 1px solid black;
+  border: 3px solid rgb(160, 35, 40);
+  background-color: rgb(95, 190, 160);
 }
 label {
   display: block;
@@ -53,7 +58,7 @@ label {
   float: left;
 }
 input {
-  width: 10%;
+  width: 200px;
   display: block;
   float: right;
 }
@@ -63,11 +68,13 @@ input {
   margin-top: .5%;
   margin-right: 2%%;
   text-align: center;
+  background-color: rgb(95, 190, 160);
 }
 
 #newShopButton:focus, #newShopButton:hover {
-  background-color: #ffffff;
-  border: 1px solid #b1e1e4;
+  background-color: rgb(160, 35, 40);
+  border: 1px solid black;
+  color: white;
 }
 
 /* Index.html styling below */

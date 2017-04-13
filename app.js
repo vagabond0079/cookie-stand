@@ -116,6 +116,7 @@ function salesReportTableHead (){
 
   newEl = document.createElement('th');
   newEl.className = 'firstCol';
+  newEl.className = 'topLeft';
   var newText = document.createTextNode('Daily Sales Report');
   newEl.appendChild(newText);
   position = document.getElementById('colHeadersRow');
@@ -199,6 +200,7 @@ function staffReportTableHead (){
 
   newEl = document.createElement('th');
   newEl.className = 'firstCol';
+  newEl.className = 'topLeft';
   var newText = document.createTextNode('Daily Staff Report');
   newEl.appendChild(newText);
   position = document.getElementById('colHeadersRowStaff');
