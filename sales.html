@@ -11,15 +11,25 @@
   <div id="formWrap">
     <form id="cookieShopCreate">
         <legend>Create New Cookie Shop</legend>
-        <label for="shopLoc" class="title">Location of New Shop:</label>
-        <input name="shopLoc" type="text" required="required"/>
-        <label for="minCust" class="title">Minimum Customers per Day: </label>
-        <input name="minCust" type"number" required="required"/>
-        <label for="maxCust" class="title">Maximum Customers per Day: </label>
-        <input name="maxCust" type"number" required="required"/>
-        <label for="avgCookiePerCust" class="title">Average Cookies Purchased per Customer: </label>
-        <input name="avgCookiePerCust" type"number" required="required"/>
-        <input id="newShopButton" type="submit" name="newShopSubmit" value ="Create New Shop" />
+        <div>
+          <label for="shopLoc" class="title">Location of New Shop:</label>
+          <input name="shopLoc" type="text" required="required"/>
+        </div>
+        <div>
+          <label for="minCust" class="title">Minimum Customers per Day: </label>
+          <input name="minCust" type="number" required="required"/>
+        </div>
+        <div>
+          <label for="maxCust" class="title">Maximum Customers per Day: </label>
+          <input name="maxCust" type="number" required="required"/>
+        </div>
+        <div>
+          <label for="avgCookiePerCust" class="title">Average Cookies Purchased per Customer: </label>
+          <input name="avgCookiePerCust" type="number" required="required"/>
+        </div>
+        <div>
+          <input id="newShopButton" type="submit" name="newShopSubmit" value ="Create New Shop" />
+        </div>
     </form>
   </div>
   <script src="app.js"></script>

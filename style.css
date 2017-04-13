@@ -18,18 +18,27 @@ table {
   width: 95%;
 }
 
+.firstCol {
+  width: 15%;
+}
+
 thead, td, th, tfoot {
     border: 1px solid black;
     text-align: center;
+    width: 5%;
 }
 
 #formWrap {
-  width: 40%;
+  width: 500px;
   padding: 20px;
-  display: inline-block;
   text-align: right;
-  margin-left: 30%;
+  margin: auto;
   border: 1px solid black;
+}
+
+form div {
+  /*border: 1px solid black;*/
+  display: inline-block;
 }
 legend {
   text-align: center;
@@ -38,19 +47,21 @@ legend {
   border: 1px solid black;
 }
 label {
-  display: inline-block;
+  display: block;
   text-align: left;
   width: auto;
+  float: left;
 }
 input {
   width: 120px;
-  display: inline-block;
+  display: block;
+  float: right;
 }
 
 #newShopButton {
   border-radius: 5px;
   margin-top: 10px;
-  margin-right: 35%;
+  margin-right: 40%;
   text-align: center;
 }
 
