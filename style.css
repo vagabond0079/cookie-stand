@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box; /*says the padding cannot change the box size.*/
-  /*border: 1px solid black;*/
+  color: rgb(30, 28, 34);
 }
 
 html, body { /* , is and selector. ul, li says all ul AND li. ul li says all li WITHING ul.*/
@@ -14,7 +14,7 @@ html, body { /* , is and selector. ul, li says all ul AND li. ul li says all li 
 
 table {
   border: 2px solid green;
-  margin: 20px;
+  margin: 2%;
   width: 95%;
 }
 
@@ -29,8 +29,8 @@ thead, td, th, tfoot {
 }
 
 #formWrap {
-  width: 500px;
-  padding: 20px;
+  width: 50%;
+  padding: 2%;
   text-align: right;
   margin: auto;
   border: 1px solid black;
@@ -43,7 +43,7 @@ form div {
 legend {
   text-align: center;
   font-size: 1.4em;
-  margin: 0 0 30 0;
+  margin: 0 0 2.5% 0;
   border: 1px solid black;
 }
 label {
@@ -53,15 +53,15 @@ label {
   float: left;
 }
 input {
-  width: 120px;
+  width: 10%;
   display: block;
   float: right;
 }
 
 #newShopButton {
   border-radius: 5px;
-  margin-top: 10px;
-  margin-right: 40%;
+  margin-top: .5%;
+  margin-right: 2%%;
   text-align: center;
 }
 
@@ -70,45 +70,10 @@ input {
   border: 1px solid #b1e1e4;
 }
 
-#salmon {
-  width: auto;
-  height: 50%;
-  display: block;
-  margin: auto;
-  margin-top: 5%;
-}
-
-#top-half {
-  height: 50%;
-  background-color: #8684A1;
-  background-image: url("Web_Native_Coho.jpg");
-  background-size: cover;
-  background-repeat: repeat;
-  background-position: center center;
-  background-size: 50%;
-}
-
-#bottom-left {
-  height: 45%;
-  width: 50%;
-  float: left;
-  background-color: #D4D2D5
-}
-
-#bottom-right {
-  height: 45%;
-  width: 50%;
-  float: right;
-  padding: 40px;
-}
-
-#footer {
-  height: 5%;
-  text-align: center;
-}
+/* Index.html styling below */
 
 h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   width: auto;
   margin: 3%;
   text-align: center;
@@ -118,7 +83,7 @@ h1 {
 h1 + p {
   text-align: center;
   font-weight: bold;
-  margin-top: 1%;
+  padding-bottom: 1%;
 }
 
 h1, h2 {
@@ -142,6 +107,16 @@ ul {
   font-weight: bold;
   margin-left: 10%;
   margin-top: 10%;
+  margin-bottom: 1%;
+  line-height: 1.8rem;
+  list-style-image: url("salmon-bullet.png");
+}
+ul+h3 {
+  width: auto;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-left: 10%;
   line-height: 1.8rem;
 }
 
@@ -149,11 +124,78 @@ li {
   font-family: 'Helvetica', sans-serif;
   font-size: 1rem;
   font-weight: normal;
-  margin-left: 3%;
+  margin-left: 50px;
+  padding-top: 10px;
 }
 
 .footer-bar {
   width: auto;
   display: inline;
   text-align: center;
+}
+
+#top-half {
+  height: 50%;
+  padding-top: 100px;
+  background-color: #8684A1;
+  background-image: url("Web_Native_Coho.jpg");
+  background-repeat: repeat-x;
+  background-attachment: fixed;
+  background-position: 50px -200px;
+  background-size: contain;
+  color: rgb(95, 190, 160);
+}
+
+#heading-box {
+  height: auto;
+  width: 30%;
+  padding: 20px;
+  margin-left: 35%;
+  border: 5px solid rgb(160, 35, 40);
+  background-color: rgb(237, 235, 227);
+}
+
+#bottom-left {
+  height: 45%;
+  width: 20%;
+  float: left;
+  background-color: rgb(237, 235, 227);
+  border: 3px solid rgb(95, 190, 160);
+}
+
+#bottom-right {
+  height: 45%;
+  width: 80%;
+  float: right;
+  padding: 40px;
+}
+
+#salmon {
+  width: 200;
+  height: auto;
+  display: block;
+  margin: auto;
+  margin-top: 2%;
+}
+
+#bottom-right p {
+  width: 80%;
+  font-size: 1.4rem;
+  margin-left: 15%;
+}
+
+#bottom-right-heading {
+  width: 45%;
+  margin-left: 30%;
+  padding: 20px;
+  border: 3px solid rgb(95, 190, 160);
+  background-color: rgb(237, 235, 227);
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+#footer {
+  height: 5%;
+  text-align: center;
+  margin-left: 5%;
 }
