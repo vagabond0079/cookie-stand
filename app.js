@@ -290,16 +290,17 @@ function handleCookieShopCreate(event) {
 
   var form = event.target;
 
-  var shopLoc = camelize(form.shopLoc.value);
-  var minCust = form.minCust.value;
-  var maxCust = form.maxCust.value;
-  var avgCookiePerCust = form.avgCookiePerCust.value;
+  var store = camelize(form.shopLoc.value);
+  var shopLoc = form.shopLoc.value;
+  var minCust = parseInt(form.minCust.value);
+  var maxCust = parseInt(form.maxCust.value);
+  var avgCookiePerCust = parseFloat(form.avgCookiePerCust.value);
 
-  var newStore = new CookieShop(shopLoc, minCust, maxCust, avgCookiePerCust);
-  newStore.randomCust();
-  newStore.cookiesPerHour();
+  store = new CookieShop(shopLoc, minCust, maxCust, avgCookiePerCust);
+  store.randomCust();
+  store.cookiesPerHour();
 
-  cookieShops.push(newStore);
+  cookieShops.push(store);
 
   document.getElementById('tableWrap').innerHTML = '';
 

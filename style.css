@@ -43,7 +43,7 @@ form div {
 legend {
   text-align: center;
   font-size: 1.4em;
-  margin: 10 10 30 10;
+  margin: 0 0 30 0;
   border: 1px solid black;
 }
 label {
