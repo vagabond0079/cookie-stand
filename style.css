@@ -5,17 +5,25 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box; /*says the padding cannot change the box size.*/
-  /*border: 1px solid black;*/
+  color: rgb(30, 28, 34);
+  border-radius: 20px;
 }
 
 html, body { /* , is and selector. ul, li says all ul AND li. ul li says all li WITHING ul.*/
   height: 100%;
 }
 
+#bodySales {
+  background-image: url("Web_Native_Coho.jpg");
+  background-position: 100px, 00px;
+  background-size: 90%;
+}
 table {
-  border: 2px solid green;
-  margin: 20px;
+  border: 3px solid rgb(160, 35, 40);
+  margin: 2%;
   width: 95%;
+  background-color: rgba(237, 235, 227, .8);
+  border-radius: 0px;
 }
 
 .firstCol {
@@ -23,28 +31,36 @@ table {
 }
 
 thead, td, th, tfoot {
-    border: 1px solid black;
+    border: 1px solid rgb(95, 190, 160);;
     text-align: center;
     width: 5%;
+    border-radius: 0px;
+}
+
+.topLeft {
+  font-size: 1.4rem;
 }
 
 #formWrap {
-  width: 500px;
-  padding: 20px;
+  width: 40%;
+  padding: 2%;
   text-align: right;
   margin: auto;
-  border: 1px solid black;
+  border: 5px solid rgb(95, 190, 160);
+  background-color: rgba(237, 235, 227, .8);
 }
 
 form div {
-  /*border: 1px solid black;*/
+  /*border: 1px solid rgb(95, 190, 160);;*/
   display: inline-block;
 }
 legend {
   text-align: center;
   font-size: 1.4em;
-  margin: 0 0 30 0;
-  border: 1px solid black;
+  margin: 0 0 2.5% 0;
+  border: 3px solid rgb(160, 35, 40);
+  background-color: rgba(95, 190, 160, .9);
+  border-radius: 5px;
 }
 label {
   display: block;
@@ -53,72 +69,38 @@ label {
   float: left;
 }
 input {
-  width: 120px;
+  width: 200px;
   display: block;
   float: right;
 }
 
 #newShopButton {
   border-radius: 5px;
-  margin-top: 10px;
-  margin-right: 40%;
+  margin-top: .5%;
+  margin-right: 2%;
   text-align: center;
+  background-color: rgb(95, 190, 160);
 }
 
 #newShopButton:focus, #newShopButton:hover {
-  background-color: #ffffff;
-  border: 1px solid #b1e1e4;
+  background-color: rgb(160, 35, 40);
+  border: 1px solid black;
+  color: white;
 }
 
-#salmon {
-  width: auto;
-  height: 50%;
-  display: block;
-  margin: auto;
-  margin-top: 5%;
-}
-
-#top-half {
-  height: 50%;
-  background-color: #8684A1;
-  background-image: url("Web_Native_Coho.jpg");
-  background-size: cover;
-  background-repeat: repeat;
-  background-position: center center;
-  background-size: 50%;
-}
-
-#bottom-left {
-  height: 45%;
-  width: 50%;
-  float: left;
-  background-color: #D4D2D5
-}
-
-#bottom-right {
-  height: 45%;
-  width: 50%;
-  float: right;
-  padding: 40px;
-}
-
-#footer {
-  height: 5%;
-  text-align: center;
-}
+/* Index.html styling below */
 
 h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   width: auto;
   margin: 3%;
   text-align: center;
-  text-decoration-color: #FF9999:
 }
 
 h1 + p {
   text-align: center;
   font-weight: bold;
-  margin-top: 1%;
+  padding-bottom: 1%;
 }
 
 h1, h2 {
@@ -142,6 +124,16 @@ ul {
   font-weight: bold;
   margin-left: 10%;
   margin-top: 10%;
+  margin-bottom: 1%;
+  line-height: 1.8rem;
+  list-style-image: url("salmon-bullet.png");
+}
+ul+h3 {
+  width: auto;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-left: 10%;
   line-height: 1.8rem;
 }
 
@@ -149,11 +141,77 @@ li {
   font-family: 'Helvetica', sans-serif;
   font-size: 1rem;
   font-weight: normal;
-  margin-left: 3%;
+  margin-left: 50px;
+  padding-top: 10px;
 }
 
 .footer-bar {
   width: auto;
   display: inline;
   text-align: center;
+}
+
+#top-half {
+  height: 50%;
+  padding-top: 100px;
+  background-color: #8684A1;
+  background-image: url("Web_Native_Coho.jpg");
+  background-attachment: fixed;
+  background-position: 50px -200px;
+  background-size: contain;
+  color: rgb(95, 190, 160);
+}
+
+#heading-box {
+  height: auto;
+  width: 30%;
+  padding: 20px;
+  margin-left: 35%;
+  border: 5px solid rgb(160, 35, 40);
+  background-color: rgba(237, 235, 227, .8);
+}
+
+#bottom-left {
+  height: 45%;
+  width: 20%;
+  float: left;
+  background-color: rgba(237, 235, 227, .9);
+  border: 3px solid rgb(95, 190, 160);
+}
+
+#bottom-right {
+  height: 45%;
+  width: 80%;
+  float: right;
+  padding: 40px;
+}
+
+#salmon {
+  width: 200;
+  height: auto;
+  display: block;
+  margin: auto;
+  margin-top: 2%;
+}
+
+#bottom-right p {
+  width: 80%;
+  font-size: 1.4rem;
+  margin-left: 15%;
+}
+
+#bottom-right-heading {
+  width: 45%;
+  margin-left: 30%;
+  padding: 20px;
+  border: 3px solid rgb(95, 190, 160);
+  background-color: rgba(237, 235, 227, .9);
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+#footer {
+  height: 5%;
+  text-align: center;
+  margin-left: 5%;
 }
