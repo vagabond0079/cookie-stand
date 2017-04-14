@@ -6,16 +6,24 @@
   padding: 0;
   box-sizing: border-box; /*says the padding cannot change the box size.*/
   color: rgb(30, 28, 34);
+  border-radius: 20px;
 }
 
 html, body { /* , is and selector. ul, li says all ul AND li. ul li says all li WITHING ul.*/
   height: 100%;
 }
 
+#bodySales {
+  background-image: url("Web_Native_Coho.jpg");
+  background-position: 100px, 00px;
+  background-size: 90%;
+}
 table {
   border: 3px solid rgb(160, 35, 40);
   margin: 2%;
   width: 95%;
+  background-color: rgba(237, 235, 227, .8);
+  border-radius: 0px;
 }
 
 .firstCol {
@@ -26,6 +34,7 @@ thead, td, th, tfoot {
     border: 1px solid rgb(95, 190, 160);;
     text-align: center;
     width: 5%;
+    border-radius: 0px;
 }
 
 .topLeft {
@@ -37,7 +46,8 @@ thead, td, th, tfoot {
   padding: 2%;
   text-align: right;
   margin: auto;
-  border: 5px solid rgb(95, 190, 160);;
+  border: 5px solid rgb(95, 190, 160);
+  background-color: rgba(237, 235, 227, .8);
 }
 
 form div {
@@ -49,7 +59,8 @@ legend {
   font-size: 1.4em;
   margin: 0 0 2.5% 0;
   border: 3px solid rgb(160, 35, 40);
-  background-color: rgb(95, 190, 160);
+  background-color: rgba(95, 190, 160, .9);
+  border-radius: 5px;
 }
 label {
   display: block;
@@ -84,7 +95,6 @@ h1 {
   width: auto;
   margin: 3%;
   text-align: center;
-  text-decoration-color: #FF9999:
 }
 
 h1 + p {
@@ -159,14 +169,14 @@ li {
   padding: 20px;
   margin-left: 35%;
   border: 5px solid rgb(160, 35, 40);
-  background-color: rgb(237, 235, 227);
+  background-color: rgba(237, 235, 227, .8);
 }
 
 #bottom-left {
   height: 45%;
   width: 20%;
   float: left;
-  background-color: rgb(237, 235, 227);
+  background-color: rgba(237, 235, 227, .9);
   border: 3px solid rgb(95, 190, 160);
 }
 
@@ -196,7 +206,7 @@ li {
   margin-left: 30%;
   padding: 20px;
   border: 3px solid rgb(95, 190, 160);
-  background-color: rgb(237, 235, 227);
+  background-color: rgba(237, 235, 227, .9);
   font-size: 1.4rem;
   text-align: center;
 }
