@@ -1,6 +1,10 @@
 'use strict';
 
+//===== Global Variables =====
+
 var hoursOfOperation = ['6:00 AM', '7:00 AM', '8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM'];
+
+//===== CookieShop Object Constructor =====
 
 function CookieShop(shopLoc, minCust, maxCust, avgCookiePerCust){
   this.shopLoc = shopLoc;
@@ -24,6 +28,8 @@ CookieShop.prototype.cookiesPerHour = function() {
     this.totalStaffPerHour.push ( Math.max ( 2, (Math.ceil (this.totalCookiesPerHour[i]/20))));
   }
 };
+
+//===== Add CookieShop totalCookiesPerHour to salesReportTableRows =====
 
 CookieShop.prototype.salesReportTableRows = function() {
   var newEl = document.createElement('tr');
@@ -53,6 +59,8 @@ CookieShop.prototype.salesReportTableRows = function() {
     position = document.getElementById(this.shopLoc + ' row');
     position.appendChild(newEl);
   }
+
+// ===== Add CookieShop totalStaffPerHour to staffReportTableRows =====
 
   CookieShop.prototype.staffReportTableRows = function() {
     var newEl = document.createElement('tr');
@@ -85,6 +93,8 @@ CookieShop.prototype.salesReportTableRows = function() {
   };
 };
 
+//===== Create Cookie Shops =====
+
 var cookieShopFirstPike = new CookieShop('First and Pike', 23, 65, 6.3);
 var cookieShopSeatacAirport = new CookieShop('Seatac Airport', 3, 24, 1.2);
 var cookieShopSeattleCenter = new CookieShop('Seattle Center', 11, 38, 3.7);
@@ -97,6 +107,8 @@ for(var i = 0; i < cookieShops.length; i++) {
   cookieShops[i].randomCust();
   cookieShops[i].cookiesPerHour();
 }
+
+//===== Create salesReportTable Header =====
 
 function salesReportTableHead (){
   var newEl = document.createElement('table');
@@ -137,7 +149,9 @@ function salesReportTableHead (){
   position.appendChild(newEl);
 }
 
-var cookieTotalsPerHourAllShops = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+//===== Get cookieTotalsPerHourAllShops =====
+
+var cookieTotalsPerHourAllShops = [];
 
 for(i = 0; i < cookieShops.length; i++){
   for(var j = 0; j < hoursOfOperation.length; j++){
@@ -151,6 +165,8 @@ for( i in cookieTotalsPerHourAllShops) {
 }
 
 cookieTotalsPerHourAllShops.push(total);
+
+//===== Create salesReportTable Footer =====
 
 function salesReportTableFoot (){
   var newEl = document.createElement('tfoot');
@@ -179,7 +195,7 @@ function salesReportTableFoot (){
   }
 }
 
-//Stretch Goal: Second Table for staff needs.
+//===== Stretch Goal: Create staffReportTable Header =====
 
 
 function staffReportTableHead (){
@@ -221,6 +237,8 @@ function staffReportTableHead (){
   position.appendChild(newEl);
 }
 
+//===== Stretch Goal: get staffTotalsPerHourAllShops =====
+
 var staffTotalsPerHourAllShops = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
 for(i = 0; i < cookieShops.length; i++){
@@ -235,6 +253,8 @@ for( i in staffTotalsPerHourAllShops) {
 }
 
 staffTotalsPerHourAllShops.push(total);
+
+//===== Stretch Goal: Create staffReportTable Footer =====
 
 function staffReportTableFoot (){
   var newEl = document.createElement('tfoot');
@@ -263,7 +283,7 @@ function staffReportTableFoot (){
   }
 }
 
-
+//===== Call Functions to Create Tables =====
 
 salesReportTableHead(cookieShops);
 
@@ -286,6 +306,8 @@ function camelize(str) {
     return index == 0 ? letter.toLowerCase() : letter.toUpperCase();
   }).replace(/\s+/g, '');
 }
+
+//===== Event Handler for cookieShopCreate Form =====
 
 function handleCookieShopCreate(event) {
   event.preventDefault();
@@ -322,6 +344,8 @@ function handleCookieShopCreate(event) {
 
   staffReportTableFoot();
 }
+
+//===== Event Listener for Submit cookieShopCreate Form =====
 
 var cookieShopCreate = document.getElementById('cookieShopCreate');
 cookieShopCreate.addEventListener ('submit', handleCookieShopCreate);
