@@ -25,40 +25,18 @@ CookieShop.prototype.randomCust = function() {
 CookieShop.prototype.cookiesPerHour = function() {
   for( var i = 0; i < this.totalCustEachHour.length; i++) {
     this.totalCookiesPerHour.push (Math.floor (this.totalCustEachHour[i] * this.avgCookiePerCust));
+  }
+};
+
+CookieShop.prototype.staffPerHour = function() {
+  for( var i = 0; i < this.totalCustEachHour.length; i++) {
     this.totalStaffPerHour.push ( Math.max ( 2, (Math.ceil (this.totalCookiesPerHour[i]/20))));
   }
 };
 
 //===== Add CookieShop totalCookiesPerHour to salesReportTableRows =====
 
-CookieShop.prototype.salesReportTableRows = function() {
-  var newEl = document.createElement('tr');
-  newEl.id = this.shopLoc + ' row';
-  var position = document.getElementById('salesReportTable');
-  position.appendChild(newEl);
 
-  newEl = document.createElement('th');
-  newEl.className = 'firstCol';
-  var newText = document.createTextNode(this.shopLoc);
-  newEl.appendChild(newText);
-  position = document.getElementById(this.shopLoc + ' row');
-  position.appendChild(newEl);
-
-  var total = 0;
-  for( var i in this.totalCookiesPerHour) {
-    total += this.totalCookiesPerHour[i];
-  }
-
-  this.totalCookiesPerHour.push(total);
-
-  for (i = 0; i <= hoursOfOperation.length; i++){
-    newEl = document.createElement('td');
-    // newEl.id = 'countMe '+ i;
-    newText = document.createTextNode(this.totalCookiesPerHour[i]);
-    newEl.appendChild(newText);
-    position = document.getElementById(this.shopLoc + ' row');
-    position.appendChild(newEl);
-  }
 
 // ===== Add CookieShop totalStaffPerHour to staffReportTableRows =====
 
@@ -106,47 +84,7 @@ var cookieShops = [cookieShopFirstPike, cookieShopSeatacAirport, cookieShopSeatt
 for(var i = 0; i < cookieShops.length; i++) {
   cookieShops[i].randomCust();
   cookieShops[i].cookiesPerHour();
-}
-
-//===== Create salesReportTable Header =====
-
-function salesReportTableHead (){
-  var newEl = document.createElement('table');
-  newEl.id = 'salesReportTable';
-  var position = document.getElementById('tableWrap');
-  position.appendChild(newEl);
-
-  newEl = document.createElement('thead');
-  newEl.id = 'colHeaders';
-  position = document.getElementById('salesReportTable');
-  position.appendChild(newEl);
-
-  newEl = document.createElement('tr');
-  newEl.id = 'colHeadersRow';
-  position = document.getElementById('colHeaders');
-  position.appendChild(newEl);
-
-  newEl = document.createElement('th');
-  newEl.className = 'firstCol';
-  newEl.className = 'topLeft';
-  var newText = document.createTextNode('Daily Sales Report');
-  newEl.appendChild(newText);
-  position = document.getElementById('colHeadersRow');
-  position.appendChild(newEl);
-
-  for (var i = 0; i < hoursOfOperation.length; i++){
-    newEl = document.createElement('th');
-    newText = document.createTextNode(hoursOfOperation[i]);
-    newEl.appendChild(newText);
-    position = document.getElementById('colHeadersRow');
-    position.appendChild(newEl);
-  }
-
-  newEl = document.createElement('th');
-  newText = document.createTextNode('Daily Location Total');
-  newEl.appendChild(newText);
-  position = document.getElementById('colHeadersRow');
-  position.appendChild(newEl);
+  cookieShops[i].staffPerHour();
 }
 
 //===== Get cookieTotalsPerHourAllShops =====
@@ -166,9 +104,77 @@ for( i in cookieTotalsPerHourAllShops) {
 
 cookieTotalsPerHourAllShops.push(total);
 
-//===== Create salesReportTable Footer =====
+//===== Create salesReportTable =====
 
-function salesReportTableFoot (){
+function salesReportTable (cookieShops){
+
+  //===== Create Table Header =====
+  var salesReportTableEl = document.createElement('table');
+  var tableWrap = document.getElementById('tableWrap');
+  tableWrap.appendChild(salesReportTableEl);
+
+  var colHeader = document.createElement('thead');
+  salesReportTableEl.appendChild(colHeader);
+
+  var colHeadersRow = document.createElement('tr');
+  colHeaders.appendChild(colHeadersRow);
+
+  var salesTopLeft = document.createElement('th');
+  salesTopLeft.className = 'firstCol';
+  salesTopLeft.className = 'topLeft';
+  salesTopLeft.textContent('Daily Sales Report');
+  colHeadersRow.appendChild(salesTopLeft);
+
+  for (var i = 0; i < hoursOfOperation.length; i++){
+    var salesHoursColHeader = document.createElement('th');
+    salesHoursColHeader.textContent(hoursOfOperation[i]);
+    colHeadersRow.appendChild(salesHoursColHeader);
+  }
+
+  var salesDailyTotalColHeader = document.createElement('th');
+  salesDailyTotalColHeader.textContent('Daily Location Total');
+  position = document.getElementById('colHeadersRow');
+  colHeadersRow.appendChild(salesDailyTotalColHeader);
+
+  //===== Create Table Data Rows =====
+
+  for(i = 0; i < cookieShops.length; i++){
+    cookieShops[i].salesReportTableRows();
+
+
+  var salesTableRow = document.createElement('tr');
+  var salesReportTable = document.getElementById('salesReportTable');
+  salesReportTable.appendChild(salesTableRow);
+
+  salesReportTableHead = document.createElement('th');
+  newEl.className = 'firstCol';
+  var newText = document.createTextNode(this.shopLoc);
+  newEl.appendChild(newText);
+  position = document.getElementById(this.shopLoc + ' row');
+  position.appendChild(newEl);
+
+}
+
+  //===== Get Total Cookies Sold Per Day from All Shops =====
+
+  var total = 0;
+  for( var i in this.totalCookiesPerHour) {
+    total += this.totalCookiesPerHour[i];
+  }
+
+  this.totalCookiesPerHour.push(total);
+
+  for (i = 0; i <= hoursOfOperation.length; i++){
+    newEl = document.createElement('td');
+    // newEl.id = 'countMe '+ i;
+    newText = document.createTextNode(this.totalCookiesPerHour[i]);
+    newEl.appendChild(newText);
+    position = document.getElementById(this.shopLoc + ' row');
+    position.appendChild(newEl);
+  }
+
+  //===== Create Table Footer =====
+
   var newEl = document.createElement('tfoot');
   newEl.id = 'colTotals';
   var position = document.getElementById('salesReportTable');
@@ -239,7 +245,7 @@ function staffReportTableHead (){
 
 //===== Stretch Goal: get staffTotalsPerHourAllShops =====
 
-var staffTotalsPerHourAllShops = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var staffTotalsPerHourAllShops = [];
 
 for(i = 0; i < cookieShops.length; i++){
   for(j = 0; j < hoursOfOperation.length; j++){
@@ -287,9 +293,7 @@ function staffReportTableFoot (){
 
 salesReportTableHead(cookieShops);
 
-for(i = 0; i < cookieShops.length; i++){
-  cookieShops[i].salesReportTableRows();
-}
+
 
 salesReportTableFoot();
 
@@ -323,6 +327,7 @@ function handleCookieShopCreate(event) {
   store = new CookieShop(shopLoc, minCust, maxCust, avgCookiePerCust);
   store.randomCust();
   store.cookiesPerHour();
+  store.staffPerHour();
 
   cookieShops.push(store);
 
